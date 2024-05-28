@@ -1,0 +1,69 @@
+{% load static %}
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css"  href="https://bootswatch.com/5/lux/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <title> ELIJAH'S CODING | Client </title>
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        
+    <a class="navbar-brand main-heading">
+      
+      &nbsp; ELIJAH'S CODING
+    </a>
+  
+  <button 
+  class="navbar-toggler" 
+  type="button" 
+  data-toggle="collapse" 
+  data-target="#navbarDropdown" 
+  aria-controls="navbarDropdown"
+  aria-expanded="false" 
+  aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse text-center" id="navbarDropdown">
+
+    <ul class="navbar-nav ml-auto">
+       
+      <li class="nav-item">
+        <a class="btn btn-secondary navbar-btn" type="button" href="{% url 'client-dashboard' %}"> Dashboard </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="btn btn-secondary navbar-btn" type="button "href="{% url 'browse-article' %}">Browse article</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="btn btn-secondary navbar-btn" type="button "href="{% url 'account-management-2' %}">account management</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="btn btn-secondary navbar-btn" type="button "href="{% url 'user-logout' %}">logout</a>
+      </li>
+
+    </ul>
+  
+  </div>
+</nav>
+
+{% block content %}
+
+
+
+{% endblock %}
+
+</html>

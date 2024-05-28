@@ -1,0 +1,137 @@
+{% extends "client/navbar.html" %}
+
+{%load crispy_forms_tags%}
+
+{% block content %}
+
+<!-- Update user details account -->
+
+<br>
+
+<div class="container bg-white shadow md p-5 form-layout text-center">
+
+    <br>
+
+    <h2>Account details </h2>
+
+    <p> You may update your account details below: </p>
+    <br>
+
+    <form method="POST" autocomplete="off">
+
+        {% csrf_token %}
+        
+        {{UpdateUserform|crispy}}
+
+        <input class="btn btn-success" type="submit" value="Update Details">
+    </form>
+
+</div>
+
+<br>
+
+{% if SubscriptionID %}
+
+<!-- If there is a subscription plan, then do nothing  -->
+
+{% else %}
+    <!-- Check available subscription plans -->
+    <div class="container bg-white shadow-md p-5 form-layout text-center">
+
+        <h5>Subscription plans</h5>
+
+        <br>
+
+        <a class="btn btn-success" type="submit" href="{% url 'subscription-plan' %}">
+
+            &nbsp; check available subscription plans
+        </a>
+
+    </div>
+
+{%endif%}
+
+<!-- Cancel/Delete subscription -->
+
+<br>
+        {% if SubscriptionID %}
+
+    <div class="container bg-white shadow-md p-5 form-layout text-center">
+
+        <h5> Delete your subscription </h5>
+
+        <hr>
+
+        <p> Permanently delete your subscription by clicking the button below: </p>
+
+        <a id="deleteButton" class="btn btn-danger" type="button" href="{% url 'delete-subscription' SubscriptionID %}"> 
+
+            > &nbsp; Delete subscription
+
+        </a>
+
+    </div>
+    
+     <br>
+     <!-- Upgrade / downgrade subscription confirmation -->
+
+    <div class="container bg-white shadow-md p-5 form-layout text-center">
+
+        <h5> Update your subscription </h5>
+
+        <hr>
+
+        <p> Upgrade / Downgrade your subscription here by clicking the button below: </p>
+
+        <a id="updateButton" class="btn btn-info" type="button" href="{% url 'update-subscription' SubscriptionID %}"> 
+
+            > &nbsp; Update subscription
+
+        </a>
+
+    </div>
+                   
+        {% else %}
+
+        <!-- Do nothing if there were no subscription plan -->
+
+        {% endif %}
+<br>
+
+<div class="container bg-white shadow md p-5 form-layout text-center">
+
+    <h3> Delete Account </h3>
+    
+    <a href="{% url 'delete-account-2' %}"> Delete Account </a>
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+
+            $("#deleteButton").on("click", function() {
+
+                $(this).text("Processing...");
+
+            });
+
+        });
+
+        $(document).ready(function () {
+
+            $("updateButton").on("click", function(){
+
+                $(this).text("Processing...");
+
+            });
+
+        });
+
+    </script>
+
+
+{% endblock %}

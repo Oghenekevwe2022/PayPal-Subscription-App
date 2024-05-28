@@ -1,0 +1,61 @@
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css"  href="https://bootswatch.com/5/lux/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <title>Registration</title>
+
+</head>
+
+<body>
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+            <h1> Register </h1>
+
+            <hr>
+
+            <p>
+                Start your journey today as a writer or a client.
+            </p>
+
+      <form method="POST" autocomplete="off">
+
+            {% csrf_token%}
+
+            {{RegisterForm|crispy}}
+
+            <br>
+
+            <input class="btn btn-success w-100"  type="submit" value="Register">
+
+        </form>
+
+        <br>
+
+        <div class="text-center">
+
+        <a href="{% url 'my-login' %}" > Already have an account? </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
