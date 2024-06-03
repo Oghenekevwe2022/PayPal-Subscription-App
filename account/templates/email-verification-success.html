@@ -1,0 +1,35 @@
+{% load static %}
+
+<html>
+
+<head>
+
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css"  href="https://bootswatch.com/5/lux/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+</head>
+ 
+
+<br>
+
+<div class="container bg-white shadow-md p-5 form-layout">
+
+    <h4> Account verified </h4>
+
+    <hr>
+
+    <p> 
+        Your account was successfully verified. 
+    </p>
+
+    <a href="{% url 'my-login' %}"> Proceed to login </a>
+
+</div>
+
+</html>

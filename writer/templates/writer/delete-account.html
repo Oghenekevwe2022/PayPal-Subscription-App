@@ -1,0 +1,26 @@
+{% extends "writer/navbar.html" %}
+
+{% block content%}
+ 
+<div class="container bg-white shadow md p-5 form-layout text-center">
+
+    <br>
+
+    <h2>Delete  account </h2>
+
+    <p>You may delete your account </p>
+    <br>
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        
+
+        <input class="btn btn-danger" type="submit" value="Delete account">
+    </form>
+    <br>
+    <br>
+    <a href="{% url 'writer-dashboard' %}">Return back to account</a>
+</div>
+
+
+{% endblock %}

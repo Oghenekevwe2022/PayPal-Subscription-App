@@ -1,0 +1,26 @@
+{% extends "writer/navbar.html" %}
+{%load crispy_forms_tags%}
+
+{% block content%}
+ 
+<div class="container bg-white shadow md p-5 form-layout text-center">
+
+    <br>
+
+    <h2>Update  article </h2>
+
+    <p> You may update the article </p>
+    <br>
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        
+        {{Updatearticle|crispy}}
+
+        <input class="btn btn-success" type="submit" value="Update article">
+    </form>
+    <br>
+</div>
+
+
+{% endblock %}
