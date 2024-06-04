@@ -25,9 +25,9 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['dev-wc6r.onrender.com', '*']
+ALLOWED_HOSTS = ['django-app-lfsl.onrender.com', '*']
 
-# CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ['https://django-app-lfsl.onrender.com']
 
 
 # Application definition
